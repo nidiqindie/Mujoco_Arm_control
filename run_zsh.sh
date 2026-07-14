@@ -2,16 +2,21 @@
 
 # 严格模式（推荐）：遇错即停，未定义变量报错，管道中任一命令失败则整体失败
 set -euo pipefail
-
+SCRIPT_NAME="./$(basename "$0")"
 # 用法说明函数
 usage() {
     cat <<EOF
+
+用法: $SCRIPT_NAME <命令> [参数...]
 
 可用命令:
   x86          运行x86下的程序
   arm          运行arm下的程序
   -h, --help   显示此帮助信息
 
+示例:
+$SCRIPT_NAME x86
+$SCRIPT_NAME arm
 EOF
 }
 
